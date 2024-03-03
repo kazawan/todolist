@@ -10,7 +10,7 @@
             Button..
         </div>
         <div class=" col-span-2  ">
-            <button @click="Modal.show(Test)">test</button>
+            <button >Archived</button>
         </div>
         <div class=" col-span-2  ">
             <button  @click="Modal.show(TodoCreate)">Create</button>

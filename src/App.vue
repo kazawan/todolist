@@ -1,15 +1,15 @@
 <script setup>
 import TodoItem from "./components/TodoItem.vue";
 import TodoBar from "./components/TodoBar.vue";
-import { ref, computed } from "vue";
+import { ref, computed,onMounted } from "vue";
 import TODO from "./TODO";
-const { todos,watchtodo, addTodo, removeTodo, compeleteSwitch,updateTodo,mockData,archived } = TODO();
+const { todos,watchtodo, addTodo, removeTodo, compeleteSwitch,updateTodo,mockData,archived,sortTodo } = TODO();
 
-const todoss = computed(() => {
-  return todos.value;
-});
+
 const newTodo = ref("");
-
+onMounted(()=>{
+  sortTodo('createAt')
+})
 
 // mockData(3)
 

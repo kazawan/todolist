@@ -47,6 +47,7 @@ export default function TODO() {
     });
     localStorage.setItem("todos", JSON.stringify(todos.value));
     todos.value = JSON.parse(localStorage.getItem("todos"));
+    sortTodo("createAt");
   };
 
   const removeTodo = (id) => {
@@ -56,6 +57,7 @@ export default function TODO() {
     todos.value.splice(index, 1);
     localStorage.setItem("todos", JSON.stringify(todos.value));
     todos.value = JSON.parse(localStorage.getItem("todos"));
+    sortTodo("createAt");
   };
 
   const compeleteSwitch = (id) => {
@@ -66,6 +68,7 @@ export default function TODO() {
     console.log(todos.value[index].updateAt);
     localStorage.setItem("todos", JSON.stringify(todos.value));
     todos.value = JSON.parse(localStorage.getItem("todos"));
+    sortTodo("createAt");
   };
 
   const updateTodo = (id, title) => {
@@ -74,6 +77,7 @@ export default function TODO() {
     todos.value[index].updateAt = new Date().getTime();
     localStorage.setItem("todos", JSON.stringify(todos.value));
     todos.value = JSON.parse(localStorage.getItem("todos"));
+    sortTodo("createAt");
   };
 
   const mockData = (count) => {
@@ -89,11 +93,24 @@ export default function TODO() {
     localStorage.setItem("todos", JSON.stringify(todos.value));
     localStorage.setItem("archived", JSON.stringify(archived.value));
     todos.value = JSON.parse(localStorage.getItem("todos"));
+    sortTodo("createAt");
   };
 
   const findTodo = (id) => {
     todos.value = JSON.parse(localStorage.getItem("todos"));
     return todos.value.find((todo) => todo.id === id);
+  };
+
+  const sortTodo = (type) => {
+    if (type === "createAt") {
+      todos.value.sort((a, b) => b.createAt - a.createAt);
+      localStorage.setItem("todos", JSON.stringify(todos.value));
+      todos.value = JSON.parse(localStorage.getItem("todos"));
+    } else if (type === "updateAt") {
+      todos.value.sort((a, b) => b.updateAt - a.updateAt);
+      localStorage.setItem("todos", JSON.stringify(todos.value));
+      todos.value = JSON.parse(localStorage.getItem("todos"));
+    }
   };
 
   return {
@@ -105,5 +122,6 @@ export default function TODO() {
     mockData,
     archived,
     findTodo,
+    sortTodo,
   };
 }
