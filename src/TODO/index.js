@@ -90,7 +90,12 @@ export default function TODO() {
     localStorage.setItem("archived", JSON.stringify(archived.value));
     todos.value = JSON.parse(localStorage.getItem("todos"));
   };
-  const watchtodo = ref(todos.value);
+
+  const findTodo = (id) => {
+    todos.value = JSON.parse(localStorage.getItem("todos"));
+    return todos.value.find((todo) => todo.id === id);
+  };
+
   return {
     todos,
     addTodo,
@@ -99,5 +104,6 @@ export default function TODO() {
     updateTodo,
     mockData,
     archived,
+    findTodo,
   };
 }
