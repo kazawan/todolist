@@ -1,19 +1,26 @@
 <template>
-    <div  class="Modal">
-     Modal..
-     <button @click="removeModal">
+    <div  class="Modal" @click="removeModal" >
+     <components :removeModal="removeModal" />
+      <!-- <button @click="removeModal">
             Close
-     </button>
+     </button> -->
+     
+     
     </div>
 </template>
 
 <script setup>
 import {ref } from 'vue'
-
 const props = defineProps({
   removeModal: {
     type: Function,
   },
+  components:{
+    type:Object
+  },
+  action:{
+    type:Function
+  }
 });
 
 </script>

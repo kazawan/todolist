@@ -1,14 +1,18 @@
 <script setup>
 import TodoItem from "./components/TodoItem.vue";
 import TodoBar from "./components/TodoBar.vue";
-// import {Modal} from "./components/Modal/index.js";
-import { ref } from "vue";
+import { ref, computed } from "vue";
 import TODO from "./TODO";
-const { todos, addTodo, removeTodo, compeleteSwitch,updateTodo,mockData } = TODO();
+const { todos,watchtodo, addTodo, removeTodo, compeleteSwitch,updateTodo,mockData,archived } = TODO();
+
+const todoss = computed(() => {
+  return todos.value;
+});
 const newTodo = ref("");
 
 
-mockData(30);
+// mockData(3)
+
 </script>
 
 <template>
@@ -34,5 +38,6 @@ mockData(30);
 
     />
   </div>
+  
   <!-- <Modal /> -->
 </template>

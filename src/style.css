@@ -44,5 +44,9 @@ body {
 }
 
 .Modal{
-  @apply  absolute top-0 left-0   w-full text-4xl  bg-gray-200/30  h-screen  flex justify-center items-center backdrop-blur-sm;
+  @apply  absolute top-0 left-0   w-full text-4xl  bg-gray-200/30  h-screen  flex    flex-wrap justify-center items-center  backdrop-blur-[2px];
+}
+
+.confirmbtn{
+  @apply w-full bg-slate-500 text-white text-center select-none cursor-pointer text-lg p-2 rounded-md;
 }

@@ -10,10 +10,10 @@
             Button..
         </div>
         <div class=" col-span-2  ">
-            Button..
+            <button @click="Modal.show(Test)">test</button>
         </div>
         <div class=" col-span-2  ">
-            <button  @click="Modal.show">Add Todo...</button>
+            <button  @click="Modal.show(TodoCreate)">Create</button>
         </div>
     </div>
 </template>
@@ -22,5 +22,5 @@
 <script setup>
 import { ref } from "vue";
 import { Modal } from "./Modal/index.js";
-
+import TodoCreate from "./TodoCreate.vue";
 </script>
