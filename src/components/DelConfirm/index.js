@@ -1,10 +1,10 @@
-import Notices from "./Notices.vue";
+import DelConfirm from "./DelConfirm.vue";
 import { createApp } from "vue";
-Notices.show = function (action, id) {
-  const app = createApp(Notices, {
+DelConfirm.show = function (action, id) {
+  const app = createApp(DelConfirm, {
     action,
     id,
-    removeNotices: () => {
+    removeDelConfirm: () => {
       app.unmount(div);
       document.body.removeChild(div);
     },
@@ -13,4 +13,4 @@ Notices.show = function (action, id) {
   app.mount(div);
 };
 
-export { Notices };
+export { DelConfirm };

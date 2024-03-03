@@ -23,7 +23,7 @@
 
 <script setup>
 import { defineProps, ref,computed } from "vue";
-import {Notices} from './Notices/index.js'
+import {DelConfirm} from './DelConfirm/index.js'
 
 const props = defineProps({
   todo: Object,
@@ -37,7 +37,7 @@ const titleStateColor = computed(() => {
 
 const rmTodo = () => {
   
-  Notices.show(props.removeTodo,props.todo.id)  
+  DelConfirm.show(props.removeTodo,props.todo.id)  
 };
 
 
