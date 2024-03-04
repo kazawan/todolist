@@ -4,10 +4,10 @@
             
         </div>
         <div class=" col-span-2  ">
-            Button..
+            
         </div>
         <div class=" col-span-2  ">
-            Button..
+            
         </div>
         <div class=" col-span-2  ">
             <button >Archived</button>
