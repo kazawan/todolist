@@ -13,6 +13,7 @@
 </template>
 
 <script setup>
+import TodoNotices from '../TodoNotices/index.js'
 const props = defineProps({
   id: String,
   action: Function,
@@ -22,5 +23,6 @@ const props = defineProps({
 const confirm = () => {
   props.action(props.id);
   props.removeDelConfirm();
+  TodoNotices.open(true, '删除成功');
 };
 </script>

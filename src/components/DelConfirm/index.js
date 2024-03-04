@@ -7,9 +7,11 @@ DelConfirm.show = function (action, id) {
     removeDelConfirm: () => {
       app.unmount(div);
       document.body.removeChild(div);
+      
     },
   });
   const div = document.createElement("div");
+  document.body.appendChild(div);
   app.mount(div);
 };
 

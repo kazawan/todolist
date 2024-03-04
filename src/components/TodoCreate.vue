@@ -29,6 +29,7 @@
 <script setup>
 import {ref} from 'vue'
 import TODO from '../TODO/index.js' 
+import TodoNotices from './TodoNotices/index.js'
 const {addTodo} = TODO()
 
 const props = defineProps({
@@ -43,5 +44,6 @@ const createTodo = () =>{
     addTodo(title.value);
     title.value = '';
     props.removeModal()
+    TodoNotices.open(true,'创建成功')
 }
 </script>
