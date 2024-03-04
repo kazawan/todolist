@@ -24,7 +24,7 @@
     </div>
     <div
       v-if="showMenu"
-      class="absolute text-sm top-0 left-[.2rem] font-extrabold text-gray-500 border-gray-600 border-2 select-none cursor-pointer"
+      class="absolute text-sm top-0 left-[.2rem] font-extrabold text-gray-500 hover:border-gray-600 hover:border-2 select-none cursor-pointer hover:bg-gray-200 hover:text-black "
       @click.stop="TodoUpdate.show(updateTodo, props.todo.id)"
     >
       ::
