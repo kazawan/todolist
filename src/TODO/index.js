@@ -1,4 +1,4 @@
-import { ref } from "vue";
+import { ref,computed } from "vue";
 function uuidv4() {
   return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, function (c) {
     const r = (Math.random() * 16) | 0,
@@ -113,6 +113,47 @@ export default function TODO() {
     }
   };
 
+
+  /**
+   * @description: 归档的todo移动到todo
+   * @param {归档的todo id} id 
+   */
+  const archivedBackToTodo = (id) => {
+    const index = archived.value.findIndex((todo) => todo.id === id);
+    todos.value.push(archived.value[index]);
+    localStorage.setItem("todos", JSON.stringify(todos.value));
+    archived.value.splice(index, 1);
+    localStorage.setItem("archived", JSON.stringify(archived.value));
+    todos.value = JSON.parse(localStorage.getItem("todos"));
+    sortTodo("createAt");
+
+  }
+
+  const archivedSort = (sortType) => {
+    if (sortType === "Ascending") {
+      archived.value.sort((a, b) => b.createAt - a.createAt);
+      localStorage.setItem("archived", JSON.stringify(archived.value));
+      archived.value = JSON.parse(localStorage.getItem("archived"));
+    } else if (sortType === "Descending") {
+      archived.value.sort((a, b) => a.createAt - b.createAt);
+      localStorage.setItem("archived", JSON.stringify(archived.value));
+      archived.value = JSON.parse(localStorage.getItem("archived"));
+    }else{
+      return 
+    }
+      
+  }
+
+  const archivedDelete = (id) => {
+    const index = archived.value.findIndex((todo) => todo.id === id);
+    archived.value.splice(index, 1);
+    localStorage.setItem("archived", JSON.stringify(archived.value));
+    archived.value = JSON.parse(localStorage.getItem("archived"));
+  }
+
+  
+
+
   return {
     todos,
     addTodo,
@@ -123,5 +164,8 @@ export default function TODO() {
     archived,
     findTodo,
     sortTodo,
+    archivedBackToTodo,
+    archivedSort,
+    archivedDelete
   };
 }

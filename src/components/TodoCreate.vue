@@ -41,6 +41,10 @@ const props = defineProps({
 const title = ref('')
 
 const createTodo = () =>{
+    if(title.value === ''){
+        TodoNotices.open(false,'标题不能为空')
+        return
+    }
     addTodo(title.value);
     title.value = '';
     props.removeModal()

@@ -5,7 +5,6 @@ import { ref, computed,onMounted } from "vue";
 import TODO from "./TODO";
 
 import TodoNotices from './components/TodoNotices/index.js'
-
 const { todos,watchtodo, addTodo, removeTodo, compeleteSwitch,updateTodo,mockData,archived,sortTodo } = TODO();
 
 

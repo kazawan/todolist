@@ -10,7 +10,7 @@
             
         </div>
         <div class=" col-span-2  ">
-            <button >Archived</button>
+            <button @click="Archived.open" >Archived</button>
         </div>
         <div class=" col-span-2  ">
             <button  @click="Modal.show(TodoCreate)">Create</button>
@@ -23,4 +23,6 @@
 import { ref } from "vue";
 import { Modal } from "./Modal/index.js";
 import TodoCreate from "./TodoCreate.vue";
+import Archived from './Archived/index.js'
+
 </script>
