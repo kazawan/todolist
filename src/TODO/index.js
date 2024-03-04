@@ -34,7 +34,7 @@ const todos = ref(null);
 const archived = ref(null);
 
 export default function TODO() {
-  todos.value = JSON.parse(localStorage.getItem("todos"));
+  todos.value = JSON.parse(localStorage.getItem("todos")) || [];
   archived.value = JSON.parse(localStorage.getItem("archived")) || [];
   const addTodo = (title) => {
     console.log("add");
